@@ -1,4 +1,4 @@
-def optimize_code(file_path: str):
+def optimize(file_path: str, key: str):
     try:
         def get_type(type):
             if type == 'py':
@@ -11,11 +11,11 @@ def optimize_code(file_path: str):
                 type = 'c++'
             return type
         from google import genai
-        client = genai.Client(api_key='')
+        client = genai.Client(api_key=key)
         file = open(file_path, 'r+')
         response = client.models.generate_content(
             model="gemini-2.5-pro-exp-03-25",
-            contents = [f'optimize my code and output raw code', file.read()]
+            contents = ['optimize my code and output raw code', file.read()]
         )
         filetype = file.name.split('.')[-1]
         filetype = get_type(filetype)
