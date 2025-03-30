@@ -1,7 +1,7 @@
 def optimize(file_path: str, key: str):
     try:
         def get_lang(type: str):
-            type = type.lower()
+            type = type.casefold()
             keys: dict[str, str] = {
                 'py': 'python',
                 'js': 'javascript',
