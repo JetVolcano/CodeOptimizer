@@ -18,7 +18,7 @@ def optimize(file_path: str, key: str):
                 type = 'c#'
             elif type_lower == 'java':
                 type = 'java'
-            elif type_lower == 'html':
+            elif type_lower == ['html', 'htm']:
                 type = 'html'
             elif type_lower == 'css':
                 type = 'css'
