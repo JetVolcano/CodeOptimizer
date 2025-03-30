@@ -30,10 +30,7 @@ def optimize(file_path: str, key: str):
                 'bat': 'batch script',
                 'txt': 'text'
             }
-            if type in keys:
-                return keys[type]
-            else:
-                return type
+            return keys[type]
         from google import genai
         client = genai.Client(api_key=key)
         file = open(file_path, 'r+')
