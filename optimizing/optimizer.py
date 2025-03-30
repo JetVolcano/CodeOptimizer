@@ -1,56 +1,39 @@
 def optimize(file_path: str, key: str):
     try:
         def get_lang(type: str):
-            type_lower = type.lower()
-            if type_lower == 'py':
-                type = 'python'
-            elif type_lower == 'js':
-                type = 'javascript'
-            elif type_lower == 'ts':
-                type = 'typescript'
-            elif type_lower == 'cpp':
-                type = 'c++'
-            elif type_lower == 'c':
-                type = 'c'
-            elif type_lower == 'h':
-                type = 'c/c++ header'
-            elif type_lower == 'cs':
-                type = 'c#'
-            elif type_lower == 'java':
-                type = 'java'
-            elif type_lower == ['html', 'htm']:
-                type = 'html'
-            elif type_lower == 'css':
-                type = 'css'
-            elif type_lower == 'json':
-                type = 'json'
-            elif type_lower == 'xml':
-                type = 'xml'
-            elif type_lower == 'rb':
-                type = 'ruby'
-            elif type_lower == 'php':
-                type = 'php'
-            elif type_lower == 'go':
-                type = 'go'
-            elif type_lower == 'swift':
-                type = 'swift'
-            elif type_lower == 'kt':
-                type = 'kotlin'
-            elif type_lower == 'rs':
-                type = 'rust'
-            elif type_lower == 'md':
-                type = 'markdown'
-            elif type_lower in ['yaml', 'yml']:
-                type = 'yaml'
-            elif type_lower == 'sql':
-                type = 'sql'
-            elif type_lower == 'sh':
-                type = 'shell script'
-            elif type_lower == 'bat':
-                type = 'batch script'
-            elif type_lower == 'txt':
-                type = 'text'
-            return type
+            type = type.lower()
+            keys: dict[str, str] = {
+                'py': 'python',
+                'js': 'javascript',
+                'ts': 'typescript',
+                'cpp': 'c++',
+                'c': 'c',
+                'h': 'c/c++ header',
+                'cs': 'c#',
+                'java': 'java',
+                'html': 'html',
+                'htm': 'html',
+                'css': 'css',
+                'json': 'json',
+                'xml': 'xml',
+                'rb': 'ruby',
+                'php': 'php',
+                'go': 'go',
+                'swift': 'swift',
+                'kt': 'kotlin',
+                'rs': 'rust',
+                'md': 'markdown',
+                'yaml': 'yaml',
+                'yml': 'yaml',
+                'sql': 'sql',
+                'sh': 'shell script',
+                'bat': 'batch script',
+                'txt': 'text'
+            }
+            if type in keys:
+                return keys[type]
+            else:
+                return type
         from google import genai
         client = genai.Client(api_key=key)
         file = open(file_path, 'r+')
