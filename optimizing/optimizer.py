@@ -15,5 +15,6 @@ def optimize(file_path: str, key: str):
         filetype = get_lang(filetype)
         code = response.text.split(f'```')[1].split('```')[0].split(filetype)[1].strip()
         file.writelines(["\n", "\n", code])
+        file.close()
     except Exception as error:
         print(error)
