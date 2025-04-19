@@ -8,7 +8,6 @@ def optimize(file_path: str, key: str):
             def get_lang(lang: str):
                 lang = lang.casefold()
                 return keys[lang]
-            
             client = genai.Client(api_key=key)
             response = client.models.generate_content(
                 model="gemini-2.5-pro-exp-03-25",
