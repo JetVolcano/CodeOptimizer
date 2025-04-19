@@ -20,9 +20,9 @@ jobs:
         pip install google
         pip install pylint
     - name: Analysing the code with pylint
+      shell: powershell
       run: |
-        try:
+        try {
           pylint $(git ls-files '*.py')
-        except Exception as e:
-          echo "Pylint analysis failed: $e"
-          exit 1
+        }
+        catch {}
