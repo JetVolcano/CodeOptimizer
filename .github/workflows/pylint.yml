@@ -21,5 +21,8 @@ jobs:
         pip install pylint
     - name: Analysing the code with pylint
       run: |
-        try { pylint $(git ls-files '*.py') }
-        catch { }
+        try:
+          pylint $(git ls-files '*.py')
+        except Exception as e:
+          echo "Pylint analysis failed: $e"
+          exit 1
