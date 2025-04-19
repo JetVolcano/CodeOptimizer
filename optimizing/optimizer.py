@@ -3,7 +3,7 @@ def optimize(file_path: str, key: str):
     with open(file_path, encoding="r+") as file:
         with open('langs.json', encoding="r") as langs:
             keys: dict[str, str] = json.load(langs)[keys]
-            def get_lang(type: str):
+            def get_lang(lang: str):
                 lang = lang.casefold()
                 return keys[lang]
             try:
