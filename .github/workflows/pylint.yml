@@ -16,7 +16,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
-        python -m pip install
+        python -m pip install --latest
         pip install google
         pip install pylint
     - name: Analysing the code with pylint
