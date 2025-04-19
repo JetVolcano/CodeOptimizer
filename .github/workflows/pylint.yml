@@ -15,10 +15,10 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
-      shell: powershell
       run: |
-        pip --version
+        python -m pip install --upgrade pip
+        pip install google
+        pip install pylint
     - name: Analysing the code with pylint
-      shell: powershell
       run: |
         pylint $(git ls-files '*.py')
