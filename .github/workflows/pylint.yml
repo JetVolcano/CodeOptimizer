@@ -17,6 +17,7 @@ jobs:
     - name: Install dependencies
       shell: powershell
       run: |
+        pip --version
         pip install google
         pip install pylint
     - name: Analysing the code with pylint
