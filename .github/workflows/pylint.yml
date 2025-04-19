@@ -22,7 +22,4 @@ jobs:
     - name: Analysing the code with pylint
       shell: powershell
       run: |
-        try {
-          pylint $(git ls-files '*.py')
-        }
-        catch {}
+        pylint $(git ls-files '*.py')
